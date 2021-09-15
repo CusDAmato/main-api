@@ -1,0 +1,15 @@
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: qwe123
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+  liquibase:
+    enabled: true
+    change-log: classpath:/liquibase/master.xml
+    contexts: base
