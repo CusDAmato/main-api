@@ -2,11 +2,11 @@ create schema if not exists diamond;
 
 create table diamond.users
 (
-    id                  varchar(16) primary key,
+    id                  varchar(43) primary key,
     name                varchar(32),
     country             varchar(32),
     city                varchar(32),
-    email               varchar(32),
+    email               varchar(100),
     wardrobe_efficiency float,
     avatar_path         varchar(256),
     fitted_outfit       jsonb
@@ -62,7 +62,10 @@ create table diamond.stories
 (
     uuid             uuid primary key,
     preview_img_path varchar(256),
-    img_path         varchar(256)
+    img_path         varchar(256),
+    caption          varchar(1000),
+    title            varchar(256),
+    subtitle         varchar(256)
 );
 
 create table diamond.users_stories

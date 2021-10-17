@@ -1,7 +1,7 @@
 package ru.diamond.mainapi.mappers;
 
 import org.mapstruct.Mapper;
-import ru.diamond.mainapi.dtos.UserDto;
+import ru.diamond.mainapi.dtos.user.UserDto;
 import ru.diamond.mainapi.entities.User;
 
 @Mapper(componentModel = "spring")

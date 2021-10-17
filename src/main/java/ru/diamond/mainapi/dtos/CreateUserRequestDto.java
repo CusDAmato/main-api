@@ -1,10 +1,8 @@
 package ru.diamond.mainapi.dtos;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
-@Setter
-@Getter
+@Data
 public class CreateUserRequestDto {
     private String name;
     private String email;

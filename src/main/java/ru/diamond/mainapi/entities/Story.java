@@ -40,8 +40,8 @@ public class Story {
     @Column(name = "title")
     private String title;
 
-    @Column(name = "subTitle")
-    private String subTitle;
+    @Column(name = "subtitle")
+    private String subtitle;
 
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<UserStory> users = new HashSet<>();
