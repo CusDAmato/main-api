@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.diamond.mainapi.dtos.CreateUserRequestDto;
+import ru.diamond.mainapi.dtos.UpdateUserRequestDto;
 import ru.diamond.mainapi.dtos.main.MainWindowDto;
 import ru.diamond.mainapi.dtos.story.StoryDto;
 import ru.diamond.mainapi.dtos.user.UserDto;
@@ -35,6 +36,18 @@ public class UserService {
         return userMapper.toUserDto(user);
     }
 
+    public UserDto updateUser(String id, UpdateUserRequestDto requestDto) {
+        User user = getUser(id);
+        user.setName(requestDto.getName());
+        user.setCountry(requestDto.getCountry());
+        user.setCity(requestDto.getCity());
+        user.setEmail(requestDto.getEmail());
+        user.setWardrobeEfficiency(requestDto.getWardrobeEfficiency());
+        user.setAvatarPath(requestDto.getAvatarPath());
+        userRepository.save(user);
+        return userMapper.toUserDto(user);
+    }
+
     public User getUser(String id) {
         return userRepository.findById(id).orElseThrow(() -> USER_NOT_FOUND_FOR_ID.apply(id));
     }
@@ -53,6 +66,6 @@ public class UserService {
                 })
                 .collect(Collectors.toSet());
 
-        return new MainWindowDto(userDto, user.getFittedOutfit(),storyDtoSet);
+        return new MainWindowDto(userDto, user.getFittedOutfit(), storyDtoSet);
     }
 }
